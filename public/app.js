@@ -1,6 +1,6 @@
 "use strict";
 
-var _jsxFileName = "/home/admi/work/react-custom-toochain/src/app.js";
+var _jsxFileName = "/home/admi/react-custom-toochain/src/app.js";
 // import React from 'react';
 // import ReactDOM from 'react-dom';
 //import './style.css'
@@ -13,6 +13,15 @@ function Card() {
   const [cards, setCard] = useState([]);
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
+  const textarea = {
+    maxWidth: '250px'
+  };
+  const container = {
+    marginTop: '60px',
+    display: 'grid',
+    gridGap: '30px',
+    justifyContent: 'center'
+  };
 
   const handleQuestion = event => setQuestion(event.target.value);
 
@@ -22,12 +31,8 @@ function Card() {
     event.preventDefault();
     const card = {
       id: Date.now(),
-      quest: {
-        value: question
-      },
-      ans: {
-        value: answer
-      }
+      ques: question,
+      ans: answer
     };
     setCard([card, ...cards]);
     setAnswer('');
@@ -38,64 +43,75 @@ function Card() {
     onSubmit: () => handleSubmit(event),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 41
     },
     __self: this
   }, React.createElement("div", {
     className: "field",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 34
-    },
-    __self: this
-  }, React.createElement("div", {
-    className: "control",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 35
-    },
-    __self: this
-  }, React.createElement("textarea", {
-    className: "textarea is-danger",
-    placeholder: "Enter the Question",
-    value: question,
-    onChange: () => handleQuestion(event),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  })), React.createElement("div", {
-    className: "control",
+    style: container,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 42
     },
     __self: this
-  }, React.createElement("textarea", {
-    className: "textarea is-focused",
-    placeholder: "Enter the Answer",
-    value: answer,
-    onChange: () => handleAnswer(event),
+  }, React.createElement("div", {
+    className: "control",
+    style: textarea,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43
     },
     __self: this
-  }))), React.createElement("button", {
-    className: "button is-success is-rounded",
+  }, React.createElement("textarea", {
+    className: "textarea is-danger has-fixed-size",
+    placeholder: "Enter the Question",
+    value: question,
+    onChange: () => handleQuestion(event),
+    style: textarea,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 44
     },
     __self: this
-  }, "Save"));
+  })), React.createElement("div", {
+    className: "control",
+    style: textarea,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }, React.createElement("textarea", {
+    className: "textarea is-focused has-fixed-size",
+    placeholder: "Enter the Answer",
+    value: answer,
+    onChange: () => handleAnswer(event),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }))), React.createElement("div", {
+    className: "has-text-centered",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: this
+  }, React.createElement("button", {
+    className: "button is-success is-rounded is-center",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: this
+  }, "Save")));
 }
 
 ReactDOM.render(React.createElement(Card, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 53
+    lineNumber: 64
   },
   __self: undefined
 }), document.getElementById('root'));
